@@ -167,6 +167,17 @@
                         <td>' + (feature.properties['Foto'] !== null ? '<img src="images/' + String(feature.properties['Foto']).replace(/[\\\/:]/g, '_').trim() + '" '+ 'class=popupImage' +'>' : '') + '</td>\
                     </tr>\
                 </table>';
+	</div>\
+<script>\
+    var acc = document.querySelectorAll(".accordion");\
+    acc.forEach(function(button) {\
+        button.addEventListener("click", function() {\
+            this.classList.toggle("active");\
+            var panel = this.nextElementSibling;\
+            panel.style.display = (panel.style.display === "block") ? "none" : "block";\
+        });\
+    });\
+</script>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
 				addClassToPopupIfMedia(content, e.popup);
